@@ -1,0 +1,32 @@
+##
+# Entry point for 'bashrc' glob script
+#
+# Execute by adding the following lines to ${HOME}/.bashrc
+# export LOCAL_HOME=${HOME}/local
+# export SYSTEM_HOME=${LOCAL_HOME}/system
+# if [ -f ${SYSTEM_HOME}/etc/bashrc ]; then
+#     source ${SYSTEM_HOME}/etc/bashrc
+# fi
+####
+
+do_bashrc_d () {
+    local L_HOME=$1; shift
+
+    local BASHRC_D="${L_HOME}/etc/bashrc.d"
+    if [ -d "${BASHRC_D}" ]; then
+        for rc in `ls -1 "${BASHRC_D}"/`; do
+            source "${BASHRC_D}/${rc}"
+        done
+    fi
+}
+
+# Use 'LOCAL_HOME', if defined
+if [ ! -z "${LOCAL_HOME}" ]; then
+    do_bashrc_d "${LOCAL_HOME}"
+fi
+
+# Use 'SYSTEM_HOME', if defined
+if [ ! -z "${SYSTEM_HOME}" ]; then
+    do_bashrc_d "${SYSTEM_HOME}"
+fi
+

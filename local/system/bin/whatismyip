@@ -1,0 +1,5 @@
+#!/bin/sh
+
+IP_ADDRESS="`curl -s http://ipecho.net/plain`"
+echo "IP Address: [${IP_ADDRESS}]"
+
