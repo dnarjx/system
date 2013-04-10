@@ -223,17 +223,15 @@
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
         " Graceful font degradation
-        silent! set guifont=Monaco:h12
-        if &guifont != 'Monaco:h12'
+        if has('gui_macvim')
+            silent! set guifont=Monaco:h12
+            set transparency=5          " Make the window slightly transparent
+        else
             set guifont=Monospace\ 9
         endif
 
         set guioptions-=T               " Remove the toolbar
         "set lines=40                    " 40 lines of text instead of 24,
-
-        if has('gui_macvim')
-            set transparency=5          " Make the window slightly transparent
-        endif
     else
         if &term == 'xterm' || &term == 'screen'
             set t_Co=256                " Enable 256 colors to stop the 
