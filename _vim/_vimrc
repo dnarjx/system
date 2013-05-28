@@ -146,10 +146,10 @@
 " Formatting {
     "set nowrap                      " Wrap long lines
     set autoindent                  " Indent at the same level of previous line
-    set shiftwidth=4                " Use indents of 4 spaces
+    set shiftwidth=2                " Use indents of 2 spaces
     set expandtab                   " Tabs are spaces, not tabs
-    set tabstop=4                   " An indentation every four columns
-    set softtabstop=4               " Let backspace delete indent
+    set tabstop=2                   " An indentation every four columns
+    set softtabstop=2               " Let backspace delete indent
     "set matchpairs+=<:>             " Match, to be used with '%'
     set pastetoggle=<F12>           " pastetoggle (sane indentation on paste)
     "set comments=sL:/*,mb:*,elx:*/ " Auto format comment blocks
@@ -187,6 +187,8 @@
     nmap <leader>f7 :set foldlevel=7<CR>
     nmap <leader>f8 :set foldlevel=8<CR>
     nmap <leader>f9 :set foldlevel=9<CR>
+
+    nmap <leader>w :%s/\s\+$//g<CR>
 
     " Toggle search highlighting
     nmap <silent> <leader>/ :set invhlsearch<CR>
