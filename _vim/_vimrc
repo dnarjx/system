@@ -1,0 +1,6 @@
+"
+" Example local 'vimrc' file
+"
+
+source $HOME/.vim/vimrc
+
